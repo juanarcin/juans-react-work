@@ -2,10 +2,10 @@ import {useState} from 'react';
 import { 
   Link, 
 } from "react-router-dom";
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const NavItem = styled.li`
-  font-family: 'East Sea Dokdo', cursive;
+  font-family: "Raleway", sans-serif;;
   float:left;
   padding: 5px 0;
   font-weight: normal;
@@ -15,21 +15,21 @@ const NavItem = styled.li`
   display:block;
   z-index: 2;
   position: relative;
-  font-size: 30px;
+  font-size: 16px;
 
 
 
   &.active-tracker{
     position: absolute;
     top: 0;
-    left: 20%;
+    left: 0%;
     height: 25px;
     z-index: 1;
-    border-bottom: 2px solid #de7406;
+    border-bottom: 2px solid #ce4f00;
   }
 
   &.active a{
-      color: #de7406;
+      color: #ce4f00;
     }
   }
 
@@ -38,30 +38,20 @@ const NavItem = styled.li`
     color:#777;
     transition: .5s all ease;
     &:hover{
-      color:#de7406;
+      color:#555;
     }
   }
 `;
 const NavContainer = styled.div`
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   text-align: center;
   width: 380px;
   height: 35px;
   position: relative;
-  float: right;
+  
 `;
-const Logo = styled.h1`
-  font-family: 'East Sea Dokdo', cursive;
-  float: left;
-  margin: 0 10px;
-  font-size: 30px;
-  font-weight: normal;
 
-  & span{
-    color:#de7406;
-  }
-`;
 const Header = styled.header`
   height: 40px;
 `;
@@ -80,7 +70,6 @@ function Nav() {
 
   return (
     <Header>
-      <Logo>Juans <span>. Work</span></Logo>
       <NavContainer>
           <NavItem className="active-tracker" style={{ left: `${activeTracker}`}}></NavItem>
 

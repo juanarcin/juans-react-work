@@ -1,28 +1,37 @@
 import {useState} from 'react';
 import {motion} from 'framer-motion';
+import styled from 'styled-components';
+import VideoBackground from '../components/background/background.js';
+import Text from '../components/homeText.js';
 
+
+
+const Fade = styled.div`
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100vw;
+	height: 100vh;
+	z-index:10;
+	background: #000;
+	transition: all ease 2s;
+	&.fadeOut{
+		background: transparent;
+		z-index: 0
+	}
+`
 function Home() {
+	const [fadeOut, startFadeOut] = useState(false)
+
+	setTimeout(function () {
+    startFadeOut(true)
+  }, 2000);
+
   return (
-	<motion.div exit={{opacity: 0}} animate={{opacity:1}} initial={{opacity:0}}>
-		<h2>HOME</h2>
-		<p>What is Lorem Ipsum?</p>
-		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-		Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-		when an unknown printer took a galley of type and scrambled it to make a type 
-		specimen book. It has survived not only five centuries, but also the leap into 
-		electronic typesetting, remaining essentially unchanged. It was popularised in 
-		the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-		and more recently with desktop publishing software like Aldus PageMaker including 
-		versions of Lorem Ipsum.</p>
-		<p>What is Lorem Ipsum?</p>
-		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-		Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-		when an unknown printer took a galley of type and scrambled it to make a type 
-		specimen book. It has survived not only five centuries, but also the leap into 
-		electronic typesetting, remaining essentially unchanged. It was popularised in 
-		the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-		and more recently with desktop publishing software like Aldus PageMaker including 
-		versions of Lorem Ipsum.</p>
+		<motion.div exit={{opacity: 0}} animate={{opacity:1}} initial={{opacity:1}}>
+			<Fade className={fadeOut  ? 'fadeOut' : ''} />
+			<VideoBackground />
+			<Text />
     </motion.div>
   );
 }
