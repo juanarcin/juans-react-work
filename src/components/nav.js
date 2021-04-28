@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import { 
   Link, 
+  useLocation 
 } from "react-router-dom";
 import styled from 'styled-components';
 
@@ -56,37 +57,48 @@ const Header = styled.header`
   height: 40px;
 `;
 function Nav() {
+  let active = 'home';
+  let slider;
 
-  const [activePage, setActivePage] = useState('home')
+  const [activePage, setActivePage] = useState()
   const [activeTracker, setActiveTracker] = useState()
 
-  function updatePage(page){
-    if(page === 'home'){setActiveTracker('0%')}
-    if(page === 'about'){setActiveTracker('25%')}
-    if(page === 'work'){setActiveTracker('50%')}
-    if(page === 'contact'){setActiveTracker('75%')}
-    setActivePage(page)
+  const location = useLocation();
+  const page = location.pathname;
+
+  function setPage(page){
+    console.log('hi')
+    if(page == '/'){slider = '0%'; active = 'home'}
+    if(page == '/about'){slider = '25%';  active = 'about'}
+    if(page == '/work'){slider = '50%';  active = 'work'}
+    if(page == '/contact'){slider = '75%';  active = 'contact'}
+  }
+
+  setPage(page)
+
+  let sliderPosition = {
+    left: slider
   }
 
   return (
     <Header>
       <NavContainer>
-          <NavItem className="active-tracker" style={{ left: `${activeTracker}`}}></NavItem>
+          {/*<NavItem className="active-tracker" style={{ left: `${active}`}}></NavItem>*/}
+          <NavItem className="active-tracker" style={sliderPosition}></NavItem>
 
-          <NavItem  onClick={() => updatePage('home')} className={activePage === 'home' ? 'active' : ''} >
+          <NavItem  className={active === 'home' ? 'active' : ''} >
             <Link to="/">home</Link>
           </NavItem>
 
-          <NavItem 
-            onClick={() => updatePage('about')} className={activePage === 'about' ? 'active' : ''} >
+          <NavItem onMouseOver={() => setPage('/about')} className={active === 'about' ? 'active' : ''} >
             <Link to="/about">about</Link>
           </NavItem>
 
-          <NavItem onClick={() => updatePage('work')} className={activePage === 'work' ? 'active' : ''} >
+          <NavItem className={active === 'work' ? 'active' : ''} >
             <Link to="/work">work</Link>
           </NavItem>
 
-          <NavItem onClick={() => updatePage('contact')} className={activePage === 'contact' ? 'active' : ''} >
+          <NavItem className={active === 'contact' ? 'active' : ''} >
             <Link to="/contact">contact</Link>
           </NavItem>
 
