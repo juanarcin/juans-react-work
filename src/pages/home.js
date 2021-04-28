@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {motion} from 'framer-motion';
 import styled from 'styled-components';
 import VideoBackground from '../components/background/background.js';
-import Text from '../components/homeText.js';
+import Intro from '../components/introText.js';
 
 
 
@@ -31,7 +31,7 @@ function Home() {
 		<motion.div exit={{opacity: 0}} animate={{opacity:1}} initial={{opacity:1}}>
 			<Fade className={fadeOut  ? 'fadeOut' : ''} />
 			<VideoBackground />
-			<Text />
+			<Intro />
     </motion.div>
   );
 }

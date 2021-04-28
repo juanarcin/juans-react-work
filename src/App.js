@@ -5,6 +5,8 @@ import {
   Route
 } from "react-router-dom";
 
+import styles from "./App.css";
+
 import Nav from "./components/nav.js";
 import Home from "./pages/home.js";
 import About from "./pages/about.js";
