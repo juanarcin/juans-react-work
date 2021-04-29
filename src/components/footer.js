@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from 'styled-components';
-import { FaInfoCircle, FaLinkedin, FaEnvelope, FaTimesCircle } from "react-icons/fa";
+import { FaInfoCircle, FaLinkedin, FaEnvelope, FaTimesCircle, FaGithub } from "react-icons/fa";
 
 
 const Info = styled.footer`
@@ -57,7 +57,7 @@ const Contact = styled.div`
   opacity: 0;
   transition: all ease .3s;
   &.on{
-    top: -80px;
+    top: -100px;
     opacity: 1;
   }
 
@@ -75,7 +75,8 @@ function Footer() {
       <FaTimesCircle  className={isActive ? "info on" : "info off"} onClick={handleToggle}/>
       <Contact className={isActive ? "on" : "off"}>
         <FaEnvelope className="contact-icon" /> JuanArcin@gmail.com<br />
-        <a href="https://www.linkedin.com/in/juanarciniega" target="_blank"><FaLinkedin  className="contact-icon" /> linkedin.com/in/juanarciniega</a>
+        <a href="https://www.linkedin.com/in/juanarciniega" target="_blank"><FaLinkedin  className="contact-icon" /> linkedin.com/in/juanarciniega</a><br />
+        <a href="https://github.com/juanarcin" target="_blank"><FaGithub  className="contact-icon" /> github.com/juanarcin</a>
       </Contact>
     </Info>
   );
