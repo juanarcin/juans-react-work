@@ -1,17 +1,10 @@
 import {motion} from 'framer-motion';
+import ProjectList from '../components/projectList.js'
 
 function Work() {
   return (
-	<motion.div exit={{opacity: 0}} animate={{opacity:1}} initial={{opacity:0}}>
-	<h2>WORK</h2>
-{/*			Landing Page
-		API
-		UI
-		e-commerce*/}
-
-
-
-
+		<motion.div exit={{opacity: 0}} animate={{opacity:1}} initial={{opacity:0}}>
+			<ProjectList />
     </motion.div>
   );
 }
