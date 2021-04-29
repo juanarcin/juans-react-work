@@ -8,6 +8,7 @@ import {
 import styles from "./App.css";
 
 import Nav from "./components/nav.js";
+import Footer from "./components/footer.js";
 import Home from "./pages/home.js";
 import About from "./pages/about.js";
 import Work from "./pages/work.js";
@@ -37,6 +38,7 @@ function App() {
           <Route path="/">       <Home />   </Route>
         </Switch>
       </AnimatePresence>
+      <Footer />
     </section>
   );
 }

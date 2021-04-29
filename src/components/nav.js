@@ -47,7 +47,7 @@ const NavContainer = styled.div`
   padding: 0;
   margin: 0 auto;
   text-align: center;
-  width: 380px;
+  width: 285px;
   height: 35px;
   position: relative;
   
@@ -59,6 +59,7 @@ const Header = styled.header`
 function Nav() {
   let active = 'home';
   let slider;
+  let sliderPosition;
 
   const [activePage, setActivePage] = useState()
   const [activeTracker, setActiveTracker] = useState()
@@ -66,19 +67,20 @@ function Nav() {
   const location = useLocation();
   const page = location.pathname;
 
-  function setPage(page){
-    console.log('hi')
-    if(page == '/'){slider = '0%'; active = 'home'}
-    if(page == '/about'){slider = '25%';  active = 'about'}
-    if(page == '/work'){slider = '50%';  active = 'work'}
-    if(page == '/contact'){slider = '75%';  active = 'contact'}
-  }
 
-  setPage(page)
+  if(page == '/'){slider = '0%'; active = 'home'}
+  if(page == '/about'){slider = '33%';  active = 'about'; }
+  if(page == '/work'){slider = '66%';  active = 'work'}
 
-  let sliderPosition = {
+
+  sliderPosition = {
     left: slider
   }
+
+
+
+
+  
 
   return (
     <Header>
@@ -90,16 +92,12 @@ function Nav() {
             <Link to="/">home</Link>
           </NavItem>
 
-          <NavItem onMouseOver={() => setPage('/about')} className={active === 'about' ? 'active' : ''} >
+          <NavItem className={active === 'about' ? 'active' : ''} >
             <Link to="/about">about</Link>
           </NavItem>
 
           <NavItem className={active === 'work' ? 'active' : ''} >
             <Link to="/work">work</Link>
-          </NavItem>
-
-          <NavItem className={active === 'contact' ? 'active' : ''} >
-            <Link to="/contact">contact</Link>
           </NavItem>
 
         </NavContainer>
