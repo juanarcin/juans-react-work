@@ -36,21 +36,21 @@ function ProjectList() {
   return (
   	<div>
   		<Tags>
-  			<li onClick={() => updateTag('All')} class={activeTag == 'All' ? 'active' : ''}>All</li>
-  			<li onClick={() => updateTag('React')} class={activeTag == 'React' ? 'active' : ''}>React</li>
-  			<li onClick={() => updateTag('Angular')} class={activeTag == 'Angular' ? 'active' : ''}>Angular</li>
-  			<li onClick={() => updateTag('jQuery')} class={activeTag == 'jQuery' ? 'active' : ''}>jQuery</li>
-  			<li onClick={() => updateTag('WordPress')} class={activeTag == 'WordPress' ? 'active' : ''}>WordPress</li>
-  			<li onClick={() => updateTag('CSS')} class={activeTag == 'CSS' ? 'active' : ''}>CSS</li>
+  			<li onClick={() => updateTag('All')} className={activeTag == 'All' ? 'active' : ''}>All</li>
+  			<li onClick={() => updateTag('React')} className={activeTag == 'React' ? 'active' : ''}>React</li>
+  			<li onClick={() => updateTag('Angular')} className={activeTag == 'Angular' ? 'active' : ''}>Angular</li>
+  			<li onClick={() => updateTag('jQuery')} className={activeTag == 'jQuery' ? 'active' : ''}>jQuery</li>
+  			<li onClick={() => updateTag('WordPress')} className={activeTag == 'WordPress' ? 'active' : ''}>WordPress</li>
+  			<li onClick={() => updateTag('CSS')} className={activeTag == 'CSS' ? 'active' : ''}>CSS</li>
   		</Tags>
 			<motion.div exit={{opacity: 0}} animate={{opacity:1}} initial={{opacity:0}}>
-				<div class="center">
+				<div className="center">
 					{data.map( project => {
 						if(activeTag === 'All') {return (
-							<Project title={project.title} tags={project.tag} id={project.id} desc={project.desc}/>
+							<Project title={project.title} tags={project.tag} id={project.id} desc={project.desc} key={project.id}/>
 						)}
 						if(activeTag === project.tag) {return (
-							<Project title={project.title} tags={project.tag} id={project.id} desc={project.desc}/>
+							<Project title={project.title} tags={project.tag} id={project.id} desc={project.desc} key={project.id} />
 						)}
 					})}
 				</div>
