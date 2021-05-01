@@ -2,7 +2,7 @@ import {useState} from 'react';
 import { FaHeart } from "react-icons/fa";
 import {motion} from 'framer-motion';
 import styled from 'styled-components';
-import VideoBackground from '../components/background/background.js';
+import VideoBackground from '../components/background.js';
 
 
 

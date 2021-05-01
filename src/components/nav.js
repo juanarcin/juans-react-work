@@ -5,6 +5,8 @@ import {
 } from "react-router-dom";
 import styled from 'styled-components';
 
+import Modal from './contactModal';
+
 const NavItem = styled.li`
   font-family: "Raleway", sans-serif;;
   float:left;
@@ -34,12 +36,13 @@ const NavItem = styled.li`
     }
   }
 
-  a{
+  a, .a{
     text-decoration: none;
     color:#777;
     transition: .5s all ease;
+    cursor: pointer;
     &:hover{
-      color:#555;
+      color:#000;
     }
   }
 `;
@@ -47,7 +50,7 @@ const NavContainer = styled.div`
   padding: 0;
   margin: 0 auto;
   text-align: center;
-  width: 285px;
+  width: 380px;
   height: 35px;
   position: relative;
   
@@ -55,6 +58,8 @@ const NavContainer = styled.div`
 
 const Header = styled.header`
   height: 40px;
+  position: relative;
+  z-index: 5;
 `;
 function Nav() {
   let active = 'home';
@@ -69,14 +74,13 @@ function Nav() {
 
 
   if(page == '/'){slider = '0%'; active = 'home'}
-  if(page == '/about'){slider = '33%';  active = 'about'; }
-  if(page == '/work'){slider = '66%';  active = 'work'}
+  if(page == '/about'){slider = '25%';  active = 'about'; }
+  if(page == '/work'){slider = '50%';  active = 'work'}
 
 
   sliderPosition = {
     left: slider
   }
-
 
 
 
@@ -100,7 +104,12 @@ function Nav() {
             <Link to="/work">work</Link>
           </NavItem>
 
+          <NavItem className={active === 'work' ? 'active' : ''} >
+            <Modal />
+          </NavItem>
+
         </NavContainer>
+        
       </Header>
   );
 }
