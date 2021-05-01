@@ -1,0 +1,53 @@
+
+[
+	{
+		"id": 1,
+		"tag": "React",
+		"publicTitle": "Portfolio (in React)",
+		"localTitle": "Current Site",
+		"publicDescription": "A react version of my portfolio.",
+		"localDescription": "This site was build with React!",
+		"url": "https://juans.work/react/",
+		"github": "https://github.com/juanarcin/juans-react-work"
+	},
+	{
+		"id": 2,
+		"tag": "Angular",
+		"publicTitle": "Portfolio (in Angular)",
+		"localTitle": "Current Site",
+		"publicDescription": "An Angular version of my portfolio.",
+		"localDescription": "This site was build with Angular!",
+		"url": "https://juans.work/react/",
+		"github": "https://github.com/juanarcin/juans-react-work"
+	},
+	{
+		"id": 3,
+		"tag": "jQuery",
+		"publicTitle": "Portfolio (in jQuery)",
+		"localTitle": "Current Site",
+		"publicDescription": "A jQuery version of my portfolio.",
+		"localDescription": "This site was build with jQuery!",
+		"url": "https://juans.work/react/",
+		"github": "https://github.com/juanarcin/juans-react-work"
+	},
+	{
+		"id": 4,
+		"tag": "WordPress",
+		"publicTitle": "Portfolio (in WordPress)",
+		"localTitle": "Current Site",
+		"publicDescription": "A WordPress version of my portfolio.",
+		"localDescription": "This site was build with WordPress!",
+		"url": "https://juans.work/react/",
+		"github": "https://github.com/juanarcin/juans-react-work"
+	},
+	{
+		"id": 6,
+		"tag": "Vanilla",
+		"publicTitle": "Landing Page",
+		"localTitle": "Current Site",
+		"publicDescription": "An example of a landing page built with basic HTML 5, CSS 3, and Vanilla Javascript",
+		"localDescription": "This site was build with React!",
+		"url": "https://juans.work/react/",
+		"github": "https://github.com/juanarcin/juans-react-work"
+	}
+]

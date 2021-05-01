@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import styled from 'styled-components';
-import VideoSrc from './background.mp4';
 
 const VideoBackground = styled.div`
 	position: absolute;
@@ -40,7 +39,7 @@ function Background() {
 		<VideoBackground>
 			<Container>
 				<Video className='videoTag' autoPlay loop muted>
-				   <source src={VideoSrc} type='video/mp4' />
+				   <source src="https://www.juans.work/shared/background.mp4" type='video/mp4' />
 				</Video>
 			</Container>
 		</VideoBackground>

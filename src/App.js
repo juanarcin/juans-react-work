@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {AnimatePresence, motion} from 'framer-motion';
 import {
   Switch,
@@ -15,10 +15,15 @@ import Work from "./pages/work.js";
 import Contact from "./pages/contact.js";
 
 
+
 function App() {
+
+
+
   
   const [activePage, setActivePage] = useState()
   const [activeTracker, setActiveTracker] = useState()
+
 
   function updatePage(page){
     if(page === 'home'){setActiveTracker('0%')}
@@ -38,7 +43,6 @@ function App() {
           <Route path="/">       <Home />   </Route>
         </Switch>
       </AnimatePresence>
-      <Footer />
     </section>
   );
 }
