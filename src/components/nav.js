@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import { 
   Link, 
   useLocation 
@@ -66,16 +65,13 @@ function Nav() {
   let slider;
   let sliderPosition;
 
-  const [activePage, setActivePage] = useState()
-  const [activeTracker, setActiveTracker] = useState()
-
   const location = useLocation();
   const page = location.pathname;
 
 
-  if(page == '/'){slider = '0%'; active = 'home'}
-  if(page == '/about'){slider = '25%';  active = 'about'; }
-  if(page == '/work'){slider = '50%';  active = 'work'}
+  if(page === '/'){slider = '0%'; active = 'home'}
+  if(page === '/about'){slider = '25%';  active = 'about'; }
+  if(page === '/work'){slider = '50%';  active = 'work'}
 
 
   sliderPosition = {

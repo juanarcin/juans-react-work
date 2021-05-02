@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import styled from 'styled-components';
-import { FaInfoCircle, FaLinkedin, FaEnvelope, FaTimesCircle, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope, FaGithub } from "react-icons/fa";
 import { AiFillCloseCircle } from "react-icons/ai";
 
 
@@ -61,8 +61,8 @@ function ContactModal(props) {
 	    	<div className="content">
 	    		<AiFillCloseCircle className="close" onClick={() => closeModal()} />
 	    		<FaEnvelope className="contact-icon" /> JuanArcin@gmail.com<br />
-	        <a href="https://www.linkedin.com/in/juanarciniega" target="_blank"><FaLinkedin  className="contact-icon" /> linkedin.com/in/juanarciniega</a><br />
-	        <a href="https://github.com/juanarcin" target="_blank"><FaGithub  className="contact-icon" /> github.com/juanarcin</a>
+	        <a href="https://www.linkedin.com/in/juanarciniega" rel="noreferrer" target="_blank"><FaLinkedin  className="contact-icon" /> linkedin.com/in/juanarciniega</a><br />
+	        <a href="https://github.com/juanarcin" rel="noreferrer" target="_blank"><FaGithub  className="contact-icon" /> github.com/juanarcin</a>
 	       </div>
 	    </Modal>
     </div>

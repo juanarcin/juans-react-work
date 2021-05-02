@@ -172,25 +172,47 @@ function Project(props) {
   let icon;
 
   //generate icons
-	if(props.tags == 'Angular') {icon = <FaAngular />}
-	if(props.tags == 'React'){ icon = <FaReact />}
-	if(props.tags == 'jQuery'){ icon = <SiJquery />}
-	if(props.tags == 'WordPress'){ icon = <FaWordpress />}
-	if(props.tags == 'Vanilla'){ icon = <FaCss3Alt />}
+	if(props.data.tag === 'Angular') {icon = <FaAngular />}
+	if(props.data.tag === 'React'){ icon = <FaReact />}
+	if(props.data.tag === 'jQuery'){ icon = <SiJquery />}
+	if(props.data.tag === 'WordPress'){ icon = <FaWordpress />}
+	if(props.data.tag === 'Vanilla'){ icon = <FaCss3Alt />}
 
+	function project(){
+
+		if(props.currentSite){
+			return(
+				<>
+					<div className="header">
+		  			<span className="icon">{icon}</span> {props.data.tag}
+		  		</div>
+		  		<h3>{props.data.localTitle}</h3>
+		  		<div className="description">{props.data.localDescription}</div>
+		  		<div className="projectFooter">
+		  			 <a href={props.github} rel="noreferrer" target="_blank">view code</a>
+		  		</div>
+	  		</>
+			)
+		} else {
+			return(
+				<>
+					<div className="header">
+		  			<span className="icon">{icon}</span> {props.data.tag}
+		  		</div>
+		  		<h3>{props.data.publicTitle}</h3>
+		  		<div className="description">{props.data.publicDescription}</div>
+		  		<div className="projectFooter">
+		  			<a href={props.url} rel="noreferrer" target="_blank">view project</a> | <a href={props.github} rel="noreferrer" target="_blank">view code</a>
+		  		</div>
+	  		</>
+			)
+
+		}
+}
 
   return (
-  	<ProjectCard className={props.tags}>
-  		<div className="header">
-  			<span className="icon">{icon}</span> {props.tags}
-  		</div>
-  		<h3>{props.title}</h3>
-  		<div className="description">{props.desc}</div>
-  		<div className="projectFooter">
-  			<a href={props.url} target="_blank">view project</a> | <a href={props.github} target="_blank">view code</a>
-  		</div>
-
-
+  	<ProjectCard className={props.data.tag}>
+  		{project()}
     </ProjectCard>
   );
 }

@@ -1,6 +1,8 @@
-import {useState} from 'react';
 import {motion} from 'framer-motion';
 import { FaLinkedin } from "react-icons/fa";
+
+
+import DateTracker from '../components/dateTracking.js';
 
 import styled from 'styled-components';
 
@@ -50,7 +52,7 @@ function About() {
 
 			<Text>
 				<h3>Hi There!</h3>
-				<p>My Name is Juan and I'm a Front End Developer with 10 years of professional experience.</p>
+				<p>My Name is Juan and I'm a Front End Developer who's been coding professionally for <DateTracker /></p>
 				<p>In my past roles I've worked closely with both design and tech teams allowing me to experience the best of both worlds.</p>
 				<p>I've helped small startups grow and large agencies continue rocking! This has allowed me to work with teams with as little as 3 and as many as 15+ engineers.</p>
 				<p>The projects I've participated in have included, Wordpress Sites (custom themes and maintenance), Single Page Applications, Landing Pages, Multi Step Forms, Ecommerce Sites, Responsive Emails, and tons of websites! </p>
