@@ -7,7 +7,8 @@ import Project from './project.js';
 function ProjectList() {
 
 	const [activeTag, setActiveTag] = useState('All')
-  const [dataObj, setData] = useState(null);
+  const [projectData, setProjectData] = useState(null);
+  const [techList, setTechList] = useState(null);
 
 
 
@@ -15,7 +16,10 @@ function ProjectList() {
   useEffect(() => {
     fetch('/shared/data.json')
     .then(response => response.json())
-    .then(json => setData(json))
+    .then(function(json){
+    	setProjectData(json.projects)
+    	setTechList(json.tools)
+    });
 
   }, [])
 
@@ -43,57 +47,36 @@ function ProjectList() {
 		}
 
 	`
-	if(dataObj == null){
+	if(projectData == null || techList == null){
 		return <p className="center">Loading...</p>
 	}
 
   return (
   	<div>
-	{console.log(dataObj)}
   		<Tags>
-  			<li onClick={() => updateTag('All')} className={activeTag == 'All' ? 'active' : ''}>All</li>
-  			<li onClick={() => updateTag('React')} className={activeTag == 'React' ? 'active' : ''}>React</li>
-  			<li onClick={() => updateTag('Angular')} className={activeTag == 'Angular' ? 'active' : ''}>Angular</li>
-  			<li onClick={() => updateTag('jQuery')} className={activeTag == 'jQuery' ? 'active' : ''}>jQuery</li>
-  			<li onClick={() => updateTag('WordPress')} className={activeTag == 'WordPress' ? 'active' : ''}>WordPress</li>
-  			<li onClick={() => updateTag('Vanilla')} className={activeTag == 'Vanilla' ? 'active' : ''}>Vanilla</li>
+  			<li onClick={() => updateTag('All')} className={activeTag === 'All' ? 'active' : ''}>All</li>
+  			{techList.map( tech => {
+  				return <li onClick={() => updateTag(tech)} className={activeTag === tech ? 'active' : ''} key={tech}>{tech}</li>
+  			})}
   		</Tags>
 
 			<motion.div exit={{opacity: 0}} animate={{opacity:1}} initial={{opacity:0}}>
 				<div className="center">
-					{dataObj.map( project => {
-						console.log(project)
+					{projectData.map( project => {
+						let currentProject = <Project 	data={project} currentSite={project.id === 1 ? true : false} key={project.id}/>
 
 						if(activeTag === 'All') {
 							return (
-								<Project 	title={project.publicTitle} 
-													tags={project.tag} 
-													id={project.id} 
-													desc={project.publicDescription} 
-													key={project.id}/>
+								currentProject
 							)
 						}
-						if(activeTag === project.tag && project.id != 1) {
+
+						if(activeTag === project.tag) {
 							return (
-								<Project 	title={project.publicTitle} 
-													tags={project.tag} 
-													id={project.id} 
-													desc={project.publicDescription} 
-													key={project.id}/>
-							)
-							
-						}
-						else if(activeTag === 'React' && project.id === 1){ 
-							return(
-								<Project 	title={project.localTitle} 
-													tags={project.tag} 
-													id={project.id} 
-													desc={project.localDescription} 
-													key={project.id} 
-													url={project.url}
-													github={project.github}/>
+								currentProject
 							)
 						}
+						return null
 					})}
 				</div>
 			</motion.div>
