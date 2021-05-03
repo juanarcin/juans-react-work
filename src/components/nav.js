@@ -58,7 +58,7 @@ const NavContainer = styled.div`
 const Header = styled.header`
   height: 40px;
   position: relative;
-  z-index: 5;
+  z-index: 16;
 `;
 function Nav() {
   let active = 'home';
