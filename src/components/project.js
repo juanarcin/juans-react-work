@@ -6,17 +6,22 @@ function Project(props) {
 
 
 	const ProjectCard = styled.div`
-		margin: 0;
 		padding: 0;
 		background:#fff;
-		margin: 10px;
-		width: 100vw;
+		margin: 20px 0;
+		width: 100%;
 		display:inline-block;
 		position: relative;
+		box-sizing: border-box;
+    & .projectFooter{
+			padding: 10px;
+			margin-top: 10px
+    }
     
     @media screen and (min-width: 600px){
         width: 250px;
         min-height: 200px;
+        margin: 20px;
         & .description{
         	height: 200px;
         	position: absolute;
@@ -189,7 +194,7 @@ function Project(props) {
 		  		<h3>{props.data.localTitle}</h3>
 		  		<div className="description">{props.data.localDescription}</div>
 		  		<div className="projectFooter">
-		  			 <a href={props.github} rel="noreferrer" target="_blank">view code</a>
+		  			 <a href={props.data.github} rel="noreferrer" target="_blank">view code</a>
 		  		</div>
 	  		</>
 			)
@@ -202,7 +207,7 @@ function Project(props) {
 		  		<h3>{props.data.publicTitle}</h3>
 		  		<div className="description">{props.data.publicDescription}</div>
 		  		<div className="projectFooter">
-		  			<a href={props.url} rel="noreferrer" target="_blank">view project</a> | <a href={props.github} rel="noreferrer" target="_blank">view code</a>
+		  			<a href={props.data.url} rel="noreferrer" target="_blank">view project</a> | <a href={props.data.github} rel="noreferrer" target="_blank">view code</a>
 		  		</div>
 	  		</>
 			)

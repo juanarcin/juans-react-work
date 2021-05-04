@@ -14,7 +14,7 @@ function ProjectList() {
 
 
   useEffect(() => {
-    fetch('/shared/data.json')
+    fetch('https://juans.work/shared/data.json')
     .then(response => response.json())
     .then(function(json){
     	setProjectData(json.projects)
@@ -24,6 +24,7 @@ function ProjectList() {
   }, [])
 
 	function updateTag(tag){
+		console.log('data fetched from juans.work')
 		setActiveTag(tag)
 	}
 
